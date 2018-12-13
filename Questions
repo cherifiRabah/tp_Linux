@@ -1,0 +1,29 @@
+Comment peut-on configurer un déchargement automatique ?
+Decharger le module :
+rmmod nom_du_module
+verifier que le module est bien décharger
+lsmod | grep nom_du_module
+
+
+
+Comment indiquer au bootloader (grub ou lilo par exemple) de booter à partir de la clé USB ?
+Lors du choix du noyau à démarrer, on appuie sur la touche c : 
+on tape la commande root(hd1, 0)
+on boote avec la commande chainloader +1
+et a la fin on tape la ommande boot
+
+
+
+
+
+
+Proposer un programme C qui permet d’afficher la liste des variables d’environnement du processus courant
+#include <stdio.h>
+int main(int argc, char *argv[], char *envp[])
+{
+  int index = 0;
+  while (envp[index])
+  {
+    printf("%s\n", envp[index++]);
+  }
+}
